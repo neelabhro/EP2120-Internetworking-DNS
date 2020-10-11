@@ -1,0 +1,61 @@
+INSTRUCTIONS
+------------
+Fill in the information below and submit this file together with your
+name server configuration files.
+
+Do not remove any parts of the existing text. Leave it as it is, and
+just fill in information about your group, and answers to the questions. 
+
+GROUP INFORMATION
+-----------------
+
+Group number: 74
+Student name 1: Neelabhro Roy
+Student name 2: Oliwer Ferm
+
+SOLUTIONS TO PART 2 "Server configuration"
+------------------------------------
+
+* Section 8. Create your own zone
+
+Question 8.1:
+We chose the zone type 'Master' for our problem. Also called the Primary Zone in the DNS server, it is the read or write copy of the DNS database. This means that whenever a new DNS record is added to the DNS database either automatically or manually, it is actually written in the master zone of the DNS server. The records in the Master zone can be managed only from our interface. Hence, the choice of Master type.
+
+Question 8.2:
+dig ns.group74.ik2218.ssvl.kth.se @8.8.8.8 provides the whole structure.
+dig -4 ns.group74.ik2218.ssvl.kth.se @8.8.8.8 provides the IPv4 address of the network.
+dig group74.ik2218.ssvl.kth.se @8.8.8.8 shows the delegation
+
+Question 8.3:
+dig ns.group74.ik2218.ssvl.kth.se @8.8.8.8
+
+* Section 9. Subzones and delgations
+
+Question 9.1:
+dig ns.sub.group74.ik2218.ssvl.kth.se@c.ns.se
+
+Question 9.2:
+A Glue Record is the IP Address of a name server at a domain name registry. Glue Records are fundamental parts of DNS records because they help to resolve DNS servers at a core level. 192.16.125.106
+
+Question 9.3:
+us.america: 1.2.3.4  brazil.america: 9.10.11.12
+
+Question 9.4:
+"Maple syrup!"
+
+Question 9.5:
+dig +trace emea74.thecompany.group74.ik2218.ssvl.kth.se
+works by pretending it's a name server and works its way through the namespace tree using iterative queries starting at the root of the tree. We can observe that the delegattion is working by the iterative queries which are arrived at, on each iteration.
+
+* Section 10. Replication - masters and slaves
+
+Question 10.1:
+Many commands can be used, with one of them being  dig us.america.group74.ik2218.ssvl.kth.se @ns2.group74.ik2218.ssv
+l.kth.se
+
+Question 10.2:
+dig china.greenworld74.ik2218.ssvl.kth.se ---> 55.56.57.58
+dig  russia.greenworld74.ik2218.ssvl.kth.se ---> 99.98.97.96
+
+Question 10.3:
+"Plant more trees!"
